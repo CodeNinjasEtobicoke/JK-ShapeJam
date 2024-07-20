@@ -83,10 +83,45 @@ public class PlayerControls : MonoBehaviour
             |**** Add your code below ****|
             \*****************************/
 
-
+            //Basic 1 projectile
+            Instantiate(projectile, transform.position, transform.rotation);
+            
+            
+            if(currentLevel >= 3)
+            {
+                Vector3 rightOffset = new Vector3(0.2f, 0, 0);
+                Vector3 leftOffset = new Vector3(-0.2f, 0, 0);
+                Instantiate(projectile, transform.position + rightOffset ,transform.rotation);
+                Instantiate(projectile, transform.position + leftOffset, transform.rotation);
+            }
+            if (currentLevel >= 6)
+            {
+                Vector3 rightOffset = new Vector3(0.4f, 0, 0);
+                Vector3 leftOffset = new Vector3(-0.4f, 0, 0);
+                Instantiate(projectile, transform.position + rightOffset, transform.rotation);
+                Instantiate(projectile, transform.position + leftOffset, transform.rotation);
+            }
+            if (currentLevel >= 9)
+            {
+                Vector3 rightOffset = new Vector3(0.6f, 0, 0);
+                Vector3 leftOffset = new Vector3(-0.6f, 0, 0);
+                Instantiate(projectile, transform.position + rightOffset, transform.rotation);
+                Instantiate(projectile, transform.position + leftOffset, transform.rotation);
+            }
             /*****************************\
             |**** Add your code above ****|
             \*****************************/
+
+            if (currentLevel >= 10)
+            {
+                for (int i = 0; i < currentLevel; i++)
+                {
+                    Vector3 rightOffset = new Vector3(currentLevel / 10f, 0, 0);
+                    Vector3 leftOffset = new Vector3(-(currentLevel / 10f), 0, 0);
+                    Instantiate(projectile, transform.position + rightOffset, transform.rotation);
+                    Instantiate(projectile, transform.position + leftOffset, transform.rotation);
+                }
+            }
         }
 
 
